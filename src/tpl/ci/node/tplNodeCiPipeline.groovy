@@ -20,9 +20,9 @@ class tplNodeCiPipeline extends tplBaseCiPipeline{
 
  }
 
-@Override
+/* @Override
 void initParams(){
-    //super.initParams()
+    super.initParams()
     containerName = script.params.containerName;
     dockerRegisteryPrefix = script.params.dockerRegisteryPrefix;
     containerTag = script.params.containerTag;
@@ -35,12 +35,12 @@ void initParams(){
     helmCrendetialId = (script.params.get('helmCrendetialId') == null ) ? 'Missing Helm-Jenkins Credentials id' : script.params.get('helmCrendetialId')
     awsCrendetialId = (script.params.get('awsCrendetialId') == null ) ? 'Missing AWS-Jenkins Credentials id' : script.params.get('awsCrendetialId')
     kubeContext = (script.params.get('kubeContext') == null ) ? 'Missing kubeContext' : script.params.get('kubeContext')
-  }
+  }*/
 
 @Override
     void setup() {
         gitConfig()
-        initParams()
+        //initParams()
 
 
         // automatically capture environment variables while downloading and uploading files
@@ -51,6 +51,7 @@ void initParams(){
     void checkout() {
         script.checkout script.scm
     }
+ /*
  @Override
     void build() {
 
@@ -79,6 +80,7 @@ void initParams(){
         def deployer =  new Deployer(script,"${script.env.JOB_NAME}",containerTag,helmRepoURL,helmRepo,helmGitRepo,helmGitRepoBranch,helmCrendetialId,awsCrendetialId,kubeContext)
         deployer.deploy()
     }
+    */
 
 
     void gitConfig() {
